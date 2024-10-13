@@ -1,15 +1,28 @@
 /* Basis styling */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9;
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom right, #f9f9f9, #e0e0e0);
     color: #333;
-    margin: 0;
+    margin: 0;  
     padding: 0;
     text-align: center;
     position: relative;
 }
+.couple-name {
+    color: #d4af37; /* Emas */
+    font-family: 'Great Vibes', cursive; /* Decorative font */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    font-size: 2.5em; /* Larger font size */
+    transition: transform 0.3s;
+}
+
+.couple-name:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
 
 h1 {
+    font-family: 'Great Vibes', cursive; /* Decorative font */
     color: #d4af37; /* Emas */
     margin-top: 20px;
 }
@@ -21,7 +34,7 @@ h1 {
     color: #d4af37; /* Dark green color */
     font-weight: bold; /* Bold text */
     margin: 20px 0; /* Add margin */
-    font-family: 'Arial', sans-serif; /* Change font family */
+    font-family: 'Montserrat', sans-serif; /* Change to Montserrat */
 }
 
 .invitation {
@@ -30,13 +43,13 @@ h1 {
     padding: 20px;
     margin: 20px auto;
     max-width: 600px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
     position: relative;
 }
 
 .invitation::before {
     content: '';
-    background-image: url('kuning.jpg'); /* Ganti dengan URL gambar bunga */
+    background-image: url('kuning.jpg'); /* Background image */
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -48,6 +61,7 @@ h1 {
 }
 
 .turut-mengundang h3 {
+    font-family: 'Great Vibes', cursive; /* Decorative font */
     color: #d4af37;
     margin-top: 20px;
 }
@@ -72,10 +86,12 @@ button {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 button:hover {
-    background-color: #b29c2e; /* Warna emas lebih gelap saat hover */
+    background-color: #b29c2e; /* Darker gold */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 .map-container {
@@ -84,12 +100,12 @@ button:hover {
 }
 
 audio {
-    display: none; /* Sembunyikan audio di halaman */
+    display: none; /* Hide audio */
 }
 
 /* Responsive Styling */
 
-/* Tampilan pada layar besar (desktop) */
+/* Large screens (desktop) */
 @media only screen and (min-width: 1024px) {
     .invitation {
         max-width: 800px;
@@ -109,7 +125,7 @@ audio {
     }
 }
 
-/* Tampilan pada tablet (medium screens) */
+/* Tablet (medium screens) */
 @media only screen and (max-width: 1024px) and (min-width: 768px) {
     .invitation {
         max-width: 700px;
@@ -129,7 +145,7 @@ audio {
     }
 }
 
-/* Tampilan pada perangkat ponsel (mobile) */
+/* Mobile devices */
 @media only screen and (max-width: 768px) {
     .invitation {
         max-width: 90%;
@@ -158,24 +174,17 @@ audio {
         max-width: 100%;
         text-align: center;
     }
-    
+
     .map-container iframe {
-        width: 100%; /* Menyesuaikan lebar map dengan ukuran kontainer */
-        height: 300px; /* Menyesuaikan tinggi map */
+        width: 100%; /* Adjust map width */
+        height: 300px; /* Adjust map height */
         border: 0;
         border-radius: 10px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-    
-    @media only screen and (min-width: 768px) {
-        .map-container iframe {
-            height: 450px; /* Ukuran map pada perangkat yang lebih besar seperti tablet atau desktop */
-        }
-    }
-    
 }
 
-/* Tampilan pada layar yang sangat kecil (misal, ponsel kecil) */
+/* Very small screens (small phones) */
 @media only screen and (max-width: 480px) {
     h1 {
         font-size: 20px;
