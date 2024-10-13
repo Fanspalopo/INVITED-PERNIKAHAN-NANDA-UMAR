@@ -6,7 +6,7 @@
     <title>Undangan Pernikahan</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Efek Salju Kuning */
+        /* Efek Salju Kuning dengan Gambar */
         .snowflake {
             position: fixed;
             top: -10px;
@@ -17,11 +17,20 @@
             user-select: none;
             animation: fall linear infinite;
         }
-
+    
         @keyframes fall {
             to {
                 transform: translateY(100vh);
             }
+        }
+    
+        /* Ganti karakter salju dengan gambar */
+        .snowflake {
+            background-image: url('snowflake-icon.png'); /* Ganti dengan URL gambar salju */
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 24px;
+            height: 24px;
         }
     </style>
 </head>
@@ -59,7 +68,7 @@
             <p>*Hartono, S.H., M.M. & Muzdalifah Nur, S.Sos.</p>
             <p>*Hertaslin, S.H., M.H. & Nuraeni, SKM., M.Tr., Adm.Kes.</p>
             <p>*Faizal Intisari Amir & Nurhasana.</p>
-            <p>*Lutfi Zulkifli Amir, SE. & Hj. Indirayanti.</p>
+            <p>*Lutfi Zulkiflu Amir, SE. & Hj. Indirayanti.</p>
             <p>*dr. Andi Erlangga Isprasetia, AIFO-K. & Rezky Yulianti Amir, S.Kep.</p>
             <p>*M.Septian Rahmat J. & Laeli Damayanti Amir, S.Si.</p>
         </div>
