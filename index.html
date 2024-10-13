@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <h1>Undangan Pernikahan</h1>
@@ -18,18 +21,25 @@
 
     <div class="invitation" id="invitation" style="display: none;">
         <p><strong>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</strong></p>
-        <p>Kepada Yth. Bapak/Ibu/Saudara(i) 
-            <h1><span id="guestNameDisplay2"></span></p></h1>
+        <p>Kepada Yth. Bapak/Ibu/Saudara(i) <h1><span id="guestNameDisplay2"></span></h1></p>
         <p>Assalamualaikum warahmatullahi wabarakatuh</p>
         <p>Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan dengan ridha dan rahmat-Nya, kami mengundang Bapak/Ibu/Saudara(i) <span id="guestNameDisplay1"></span> untuk menghadiri acara pernikahan cucu, keponakan kami:</p>
-        <p><strong>Ananda Fajria Salsabhila, S.Ap.</strong> dengan <strong>Umar Asis, SE.</strong></p>
-        <p>Yang InsyaAllah Akan Diselenggarakan pada:</p>
+        <p>
+            <h1>
+                <span class="couple-name"><strong>Ananda Fajria Salsabhila, S.Ap.</strong></span>
+            </h1>
+            <p style="font-size: 2.5em; font-family: 'Great Vibes', cursive;">dengan</p> <!-- Adjusted font size -->
+            <h1>
+                <span class="couple-name"><strong>Umar Asis, SE.</strong></span>
+            </h1>
+        </p>        
+                <p>Yang InsyaAllah Akan Diselenggarakan pada:</p>
         <p><strong>Hari Sabtu, 26 Oktober 2024</strong><br>
         *Akad Nikah Pukul 10.00 WITA<br>
         *Resepsi Pukul 19.00 - Selesai WITA</p>
         <p>Di Jalan Andi Sewang Krg, Muntu No 21 Labakkang-Pangkep</p>
         <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara(i) <span id="guestNameDisplay2"></span> berkenan hadir untuk memberikan doa restu kepada kedua mempelai.</p>
-        <p>Assalamualaikum warahmatullahi wabarakatuh</p>
+        <p>Wassalamualaikum warahmatullahi wabarakatuh</p>
 
         <div class="turut-mengundang">
             <h3>Hormat kami yang mengundang:</h3>
@@ -47,52 +57,55 @@
     </div>
 
     <div class="map-container">
-    <h2>Lokasi Acara</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1503.9359356895773!2d119.5265836127602!3d-4.77304434749808!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbe4f454267f2e3%3A0x2e89c079e4a2fc87!2sRAYHAN%20CELL!5e1!3m2!1sid!2sid!4v1728815628388!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
+        <h2>Lokasi Acara</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1503.9359356895773!2d119.5265836127602!3d-4.77304434749808!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbe4f454267f2e3%3A0x2e89c079e4a2fc87!2sRAYHAN%20CELL!5e1!3m2!1sid!2sid!4v1728815628388!5m2!1sid!2sid" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 
     <audio id="audio" autoplay muted>
-    <source src="backsound.mp3" type="audio/mpeg">
-</audio>
-
+        <source src="sound.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
-       function showInvitation() {
-    const name = document.getElementById("guestName").value;
-    const greeting = document.getElementById("greeting");
-    if (name) {
-        greeting.style.display = "block";
-        greeting.innerText = `Selamat ${name}, Anda diundang untuk menghadiri acara pernikahan!`;
-        document.getElementById("guestNameDisplay1").innerText = name;
-        document.getElementById("guestNameDisplay2").innerText = name;
-        document.getElementById("invitation").style.display = "block";
-        document.querySelector(".form-container").style.display = "none";
+        function showInvitation() {
+            const name = document.getElementById("guestName").value;
+            const greeting = document.getElementById("greeting");
+            if (name) {
+                greeting.style.opacity = 0;
+                greeting.style.display = "block";
+                greeting.innerText = `Selamat ${name}, Anda diundang untuk menghadiri acara pernikahan!`;
+                setTimeout(() => {
+                    greeting.style.opacity = 1;
+                }, 100);
+                document.getElementById("guestNameDisplay1").innerText = name;
+                document.getElementById("guestNameDisplay2").innerText = name;
+                document.getElementById("invitation").style.display = "block";
+                document.querySelector(".form-container").style.display = "none";
 
-        // Hapus atribut 'muted' dan putar ulang audio
-        const audio = document.getElementById("audio");
-        audio.muted = false; // Matikan mute
-        audio.play().catch(error => console.log('Playback error: ', error)); // Memutar audio setelah interaksi
-    } else {
-        alert("Silakan masukkan nama Anda.");
-    }
+                // Play audio
+                const audio = document.getElementById("audio");
+                audio.muted = false; // Unmute
+                audio.play().catch(error => console.log('Playback error: ', error));
+            } else {
+                alert("Silakan masukkan nama Anda.");
+            }
         }
 
         window.addEventListener('load', function() {
             const audio = new Audio('backsound.mp3');
             audio.play().catch(error => console.log('Playback error: ', error));
 
-            // Membuat efek salju kuning
-            const snowflakesCount = 50; // Jumlah salju
-            for (let i = 0; i < snowflakesCount; i++) {
-                const snowflake = document.createElement('div');
-                snowflake.classList.add('snowflake');
-                snowflake.innerText = '❄'; // Karakter salju
-                snowflake.style.left = `${Math.random() * 100}vw`;
-                snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`; // Durasi acak
-                snowflake.style.animationDelay = `${Math.random() * 2}s`; // Penundaan acak
-                document.body.appendChild(snowflake);
+            // Create multiple snowflakes (optional)
+            for (let i = 0; i < 50; i++) {
+                createSnowflake();
             }
         });
+
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            // Additional snowflake styles and positioning can be added here
+            document.body.appendChild(snowflake);
+        }
     </script>
 </body>
 </html>
