@@ -8,6 +8,7 @@ body {
     text-align: center;
     position: relative;
 }
+
 .couple-name {
     color: #d4af37; /* Emas */
     font-family: 'Great Vibes', cursive; /* Decorative font */
@@ -15,7 +16,6 @@ body {
     font-size: 1em; /* Set to 1em for smaller text */
     transition: transform 0.3s;
 }
-
 
 h1 {
     font-family: 'Great Vibes', cursive; /* Decorative font */
@@ -27,7 +27,7 @@ h1 {
 .invitation p:first-of-type {
     font-size: 2.1em; /* Increase font size */
     text-align: center; /* Center the text */
-    color: #d4af37; /* Dark green color */
+    color: #d4af37; /* Gold color */
     font-weight: bold; /* Bold text */
     margin: 20px 0; /* Add margin */
     font-family: 'Montserrat', sans-serif; /* Change to Montserrat */
