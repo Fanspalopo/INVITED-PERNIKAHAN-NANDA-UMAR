@@ -5,6 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan Pernikahan</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Efek Salju Kuning */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            color: yellow;
+            font-size: 24px;
+            pointer-events: none;
+            z-index: 9999;
+            user-select: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>Undangan Pernikahan</h1>
@@ -46,16 +65,14 @@
         </div>
     </div>
 
-<div class="map-container">
-    <h2>Lokasi Acara</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1786.5843954293061!2d119.52679953887196!3d-4.7733329094506205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sDi%20Jalan%20Andi%20Sewang%20Krg%2C%20Muntu%20No%2021%20Labakkang-Pangkep!5e0!3m2!1sid!2sid!4v1728812485830!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
+    <div class="map-container">
+        <h2>Lokasi Acara</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1786.5843954293061!2d119.52679953887196!3d-4.7733329094506205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sDi%20Jalan%20Andi%20Sewang%20Krg%2C%20Muntu%20No%2021%20Labakkang-Pangkep!5e0!3m2!1sid!2sid!4v1728812485830!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 
     <audio autoplay>
-    <source src="backsound.mp3" type="audio/mpeg">
-
-</audio>
-
+        <source src="backsound.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
         function showInvitation() {
@@ -72,12 +89,23 @@
                 alert("Silakan masukkan nama Anda.");
             }
         }
+
         window.addEventListener('load', function() {
-    const audio = new Audio('backsound.mp3');
-    audio.play().catch(error => console.log('Playback error: ', error));
-});
+            const audio = new Audio('backsound.mp3');
+            audio.play().catch(error => console.log('Playback error: ', error));
 
+            // Membuat efek salju kuning
+            const snowflakesCount = 50; // Jumlah salju
+            for (let i = 0; i < snowflakesCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.innerText = '❄'; // Karakter salju
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`; // Durasi acak
+                snowflake.style.animationDelay = `${Math.random() * 2}s`; // Penundaan acak
+                document.body.appendChild(snowflake);
+            }
+        });
     </script>
-
 </body>
 </html>
