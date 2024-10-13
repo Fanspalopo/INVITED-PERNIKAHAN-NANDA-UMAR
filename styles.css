@@ -153,10 +153,26 @@ audio {
         font-size: 24px;
     }
 
-    .map-container iframe {
-        width: 100%;
-        height: 300px;
+    .map-container {
+        margin: 20px auto;
+        max-width: 100%;
+        text-align: center;
     }
+    
+    .map-container iframe {
+        width: 100%; /* Menyesuaikan lebar map dengan ukuran kontainer */
+        height: 300px; /* Menyesuaikan tinggi map */
+        border: 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    @media only screen and (min-width: 768px) {
+        .map-container iframe {
+            height: 450px; /* Ukuran map pada perangkat yang lebih besar seperti tablet atau desktop */
+        }
+    }
+    
 }
 
 /* Tampilan pada layar yang sangat kecil (misal, ponsel kecil) */
