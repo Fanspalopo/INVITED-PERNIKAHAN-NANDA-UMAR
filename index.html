@@ -20,7 +20,7 @@
 
     <div class="invitation" id="invitation" style="display: none;">
         <p><strong>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</strong></p>
-        <p>Kepada Yth. Bapak/Ibu/Saudara(i) <h1></h1><span id="guestNameDisplay2"></span><H1></H1></p>
+        <p>Kepada Yth. Bapak/Ibu/Saudara(i) <h1><span id="guestNameDisplay2"></span></H1></p>
         <p>Assalamualaikum warahmatullahi wabarakatuh</p>
         <p>Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan dengan ridha dan rahmat-Nya, kami mengundang Bapak/Ibu/Saudara(i) <span id="guestNameDisplay1"></span> untuk menghadiri acara pernikahan cucu, keponakan kami:</p>
         
@@ -65,46 +65,46 @@
     </audio>
 
     <script>
-        function showInvitation() {
-            const name = document.getElementById("guestName").value;
-            const greeting = document.getElementById("greeting");
-            if (name) {
-                greeting.style.opacity = 0;
-                greeting.style.display = "block";
-                greeting.innerText = `Selamat ${name}, Anda diundang untuk menghadiri acara pernikahan!`;
-                setTimeout(() => {
-                    greeting.style.opacity = 1;
-                }, 100);
-                document.getElementById("guestNameDisplay1").innerText = name;
-                document.getElementById("guestNameDisplay2").innerText = name;
-                document.getElementById("invitation").style.display = "block";
-                document.querySelector(".form-container").style.display = "none";
+    function showInvitation() {
+    const name = document.getElementById("guestName").value;
+    const greeting = document.getElementById("greeting");
+    
+    if (name) {
+        greeting.style.opacity = 0;
+        greeting.style.display = "block";
+        greeting.innerText = `Selamat ${name}, Anda diundang untuk menghadiri acara pernikahan!`;
+        setTimeout(() => {
+            greeting.style.opacity = 1;
+        }, 100);
+        document.getElementById("guestNameDisplay1").innerText = name;
+        document.getElementById("guestNameDisplay2").innerText = name;
+        document.getElementById("invitation").style.display = "block";
+        document.querySelector(".form-container").style.display = "none";
 
-                // Play audio
-                const audio = document.getElementById("audio");
-                audio.muted = false; // Unmute
-                audio.play().catch(error => console.log('Playback error: ', error));
-            } else {
-                alert("Silakan masukkan nama Anda.");
-            }
-        }
+        // Kirim nama tamu ke Google Sheets
+        sendToSheet(name);
 
-        window.addEventListener('load', function() {
-            const audio = new Audio('soundnashed.mp3');
-            audio.play().catch(error => console.log('Playback error: ', error));
+        // Play audio
+        const audio = document.getElementById("audio");
+        audio.muted = false; // Unmute
+        audio.play().catch(error => console.log('Playback error: ', error));
+    } else {
+        alert("Silakan masukkan nama Anda.");
+    }
+}
 
-            // Create multiple snowflakes (optional)
-            for (let i = 0; i < 50; i++) {
-                createSnowflake();
-            }
-        });
+function sendToSheet(name) {
+    const url = 'https://script.google.com/macros/s/AKfycbw9aXdE3b_3MeDJHbdRhuackqG66iniW0slg_M9fT0/dev'; // Ganti dengan URL yang Anda dapatkan dari Apps Script
+    console.log('Sending name to sheet:', name); // Log nama yang dikirim
+    fetch(url + '?name=' + encodeURIComponent(name))
+        .then(response => response.text())
+        .then(data => {
+            console.log(data); // Log respons dari server
+        })
+        .catch(error => console.error('Error:', error));
+}
 
-        function createSnowflake() {
-            const snowflake = document.createElement('div');
-            snowflake.className = 'snowflake';
-            // Additional snowflake styles and positioning can be added here
-            document.body.appendChild(snowflake);
-        }
+
     </script>
 </body>
 </html>
