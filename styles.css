@@ -12,7 +12,6 @@ body {
 .couple-name {
     color: #d4af37; /* Emas */
     font-family: 'Great Vibes', cursive; /* Decorative font */
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
     font-size: 1em; /* Set to 1em for smaller text */
     transition: transform 0.3s;
 }
